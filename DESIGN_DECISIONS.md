@@ -36,7 +36,6 @@ The request is softly categorized into:
 * Theme (e.g., friendship, courage, kindness)
 * Tone (e.g., calm, playful, adventurous)
 * Genre (e.g., animals, fantasy, robots)
-* Target age band (5–7 vs 8–10)
 
 ### Design Choice
 

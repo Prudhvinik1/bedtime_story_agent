@@ -84,16 +84,13 @@ and whether the story follows the user's request.
 """
 
 def build_judge_prompt(story: str, user_request: str | None = None) -> str:
-    """
-    Builds the prompt for the judge model.
-    The judge MUST return JSON only.
-    """
-
     return f"""
         Evaluate the following bedtime story for a child aged 5–10.
 
         STORY:
+        \"\"\"
         {story}
+        \"\"\"
 
         Your task is to evaluate the story across the dimensions listed below.
         Score EACH dimension from 1 to 5 and briefly explain the reason.
@@ -137,28 +134,28 @@ def build_judge_prompt(story: str, user_request: str | None = None) -> str:
         - Do NOT include any text outside JSON
 
         JSON SCHEMA:
-        {
-            "scores": {
-                "age_appropriateness": {
-                "score": <integer 1-5>,
-                "reason": "<short explanation>"
-                },
-                "story_structure": {
-                "score": <integer 1-5>,
-                "reason": "<short explanation>"
-                },
-                "engagement": {
-                "score": <integer 1-5>,
-                "reason": "<short explanation>"
-                },
-                "request_alignment": {
-                "score": <integer 1-5>,
-                "reason": "<short explanation>"
-                }
-            },
-            "verdict": "PASS or FAIL",
-            "improvement_feedback": "<specific suggestions only if verdict is FAIL, otherwise empty string>"
-        }
+        {{
+        "scores": {{
+            "age_appropriateness": {{
+            "score": "<integer 1-5>",
+            "reason": "<short explanation>"
+            }},
+            "story_structure": {{
+            "score": "<integer 1-5>",
+            "reason": "<short explanation>"
+            }},
+            "engagement": {{
+            "score": "<integer 1-5>",
+            "reason": "<short explanation>"
+            }},
+            "request_alignment": {{
+            "score": "<integer 1-5>",
+            "reason": "<short explanation>"
+            }}
+        }},
+        "verdict": "PASS or FAIL",
+        "improvement_feedback": "<specific suggestions only if verdict is FAIL, otherwise empty string>"
+        }}
         """
 
 def build_classification_prompt(user_request: str) -> str:

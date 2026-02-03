@@ -1,6 +1,6 @@
-from .prompts import *
-from .validators import *
-from .utils import call_model
+from prompts import *
+from validators import *
+from utils import call_model
 import json
 
 MAX_RETRIES = 2
@@ -31,6 +31,7 @@ def generate_story(user_input, classification, feedback=None) -> str:
     
     try:
         story = call_model(user_prompt=prompt, system_prompt=STORYTELLER_SYSTEM_PROMPT)
+        print(f"Generated story: {story}")
         return story.strip()
 
     except Exception as e:
@@ -84,6 +85,7 @@ def run_story_engine(user_input, feedback=None, max_retries=3) -> str:
        
            
             judge_result = judge_story(story, user_input)
+            print(f"Judge result: {judge_result}")
             if not judge_result:
                 # Log Error and Continue
                 print("Judge failed to return valid JSON, retrying...")
