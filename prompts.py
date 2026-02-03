@@ -1,11 +1,6 @@
 """
 PROMPTS FOR THE AI AGENT DEPLOYMENT ENGINEER TAKEHOME
 """
-from typing import json
-from pydantic import BaseModel, Field
-
-
-
 
 STORYTELLER_SYSTEM_PROMPT = """
 You are a gentle and creative bedtime storyteller for children.
@@ -28,7 +23,7 @@ You must NEVER include:
 
 def build_storyteller_prompt(
     user_request: str,
-    classification: str | None = None,
+    classification: dict[str, str] | None = None,
     feedback: str | None = None
 ) -> str:
     """
@@ -58,7 +53,7 @@ def build_storyteller_prompt(
         """
 
     # Prompt Level Guardrails
-    prompt += """
+    base_prompt += """
         STORY REQUIREMENTS (MUST FOLLOW ALL):
 
         - Target age: 5–10 years old
@@ -185,3 +180,4 @@ def build_classification_prompt(user_request: str) -> str:
 
         JSON only. No extra text.
         """
+
