@@ -19,5 +19,40 @@ The attached code is a simple python script skeleton. Your goal is to take any s
    - You have to be able to explain how the code works, even if chatGPT wrote it
 - DO NOT PUSH THE API KEY TO GITHUB. OpenAI will automatically delete it
 
+## Architecture Diagram
+
+![Architecture Diagram](architecture%20diagram.png)
+
+## Steps to Run
+
+### 1) Create a virtual environment (optional but recommended)
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+### 2) Install dependencies
+```bash
+pip install openai streamlit python-dotenv
+```
+
+### 3) Add your OpenAI API key
+Create a file named `.env.local` in the project root:
+
+```bash
+OPENAI_API_KEY=your_key_here
+```
+
+### 4) Run the app
+
+#### Option A: Streamlit UI
+```bash
+streamlit run app.py
+```
+
+#### Option B: CLI
+```bash
+python main.py
+```
 ---
 
