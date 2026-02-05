@@ -47,12 +47,12 @@ OPENAI_API_KEY=your_key_here
 
 #### Option A: Streamlit UI
 ```bash
-streamlit run app.py
+streamlit run src/app.py
 ```
 
 #### Option B: CLI
 ```bash
-python main.py
+python -m src.main
 ```
 ---
 
