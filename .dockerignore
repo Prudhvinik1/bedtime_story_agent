@@ -1,0 +1,22 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.env
+.env.local
+tests/
+.git/
+.gitignore
+.github/
+README.md
+DESIGN_DECISIONS.md
+architecture diagram.png
+pytest.ini
+requirements-dev.txt

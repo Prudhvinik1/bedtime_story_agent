@@ -33,7 +33,8 @@ source .venv/bin/activate
 
 ### 2) Install dependencies
 ```bash
-pip install openai streamlit python-dotenv
+pip install openai streamlit python-dotenv fastapi uvicorn
+pip install -r requirements-dev.txt
 ```
 
 ### 3) Add your OpenAI API key
@@ -54,5 +55,18 @@ streamlit run src/app.py
 ```bash
 python -m src.main
 ```
+
+#### Option C: API (FastAPI)
+```bash
+uvicorn src.api:app --reload --port 8000
+```
+
+### 5) Configuration (optional)
+The API supports the following environment variables:
+- `OPENAI_MODEL` (default: `gpt-3.5-turbo`)
+- `OPENAI_TIMEOUT_SECONDS` (default: `30`)
+- `MAX_INPUT_CHARS` (default: `1000`)
+- `RATE_LIMIT_WINDOW_SECONDS` (default: `60`)
+- `RATE_LIMIT_MAX_REQUESTS` (default: `30`)
 ---
 
