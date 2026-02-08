@@ -5,11 +5,14 @@ from typing import Dict, Optional, Tuple
 
 import uvicorn
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 from src.logging_utils import get_logger, log_event
 from src.story_engine import run_story_engine
+
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
 
 MAX_INPUT_CHARS = int(os.getenv("MAX_INPUT_CHARS", "1000"))
 RATE_LIMIT_WINDOW_SECONDS = int(os.getenv("RATE_LIMIT_WINDOW_SECONDS", "60"))
@@ -30,6 +33,14 @@ class StoryResponse(BaseModel):
     request_id: Optional[str] = None
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=CORS_ORIGINS,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.middleware("http")
