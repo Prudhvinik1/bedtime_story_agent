@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bedtime-story-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bedtime-story-api
+  template:
+    metadata:
+      labels:
+        app: bedtime-story-api
+    spec:
+      containers:
+        - name: api
+          image: bedtime-story-app:local
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: openai-api-key
+                  key: OPENAI_API_KEY

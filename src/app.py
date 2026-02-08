@@ -1,6 +1,6 @@
 import streamlit as st
-from story_engine import run_story_engine
 from dotenv import load_dotenv
+from src.story_engine import run_story_engine
 
 load_dotenv(".env.local")
 

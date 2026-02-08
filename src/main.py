@@ -1,7 +1,5 @@
-import os
-import openai
 import dotenv
-from story_engine import run_story_engine
+from src.story_engine import run_story_engine
 
 dotenv.load_dotenv(".env.local")
 

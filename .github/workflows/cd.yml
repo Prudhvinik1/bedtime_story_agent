@@ -1,0 +1,33 @@
+name: CD (Manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "Docker image tag"
+        required: false
+        default: "manual"
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: |
+          docker build -t bedtime-story-app:${{ inputs.image_tag }} .
+
+      - name: Save image as artifact
+        run: |
+          docker save bedtime-story-app:${{ inputs.image_tag }} -o bedtime-story-app.tar
+
+      - name: Upload image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bedtime-story-app-${{ inputs.image_tag }}
+          path: bedtime-story-app.tar

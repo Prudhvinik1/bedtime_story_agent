@@ -184,6 +184,12 @@ Safety is enforced at multiple layers:
 * Supports auditability and system improvement
 * Logs are anonymized and non-sensitive
 
+### Recent Additions
+
+* Structured JSON logging with `request_id`, `stage`, `status`, and latency.
+* API-level request logging (method, path, response status, latency).
+* LLM call timing and model metadata (model name, timeout, max tokens).
+
 ---
 
 ## 11. Human Oversight
@@ -200,7 +206,23 @@ Safety is enforced at multiple layers:
 
 ---
 
-## 12. Explicit Non-Goals (Intentional Omissions)
+## 12. API & Deployment Readiness
+
+### Design Choice
+
+* Provide a minimal FastAPI service layer with request/response schemas.
+* Generate a backend `request_id` for traceability across logs.
+* Enforce basic input validation limits and rate limiting.
+
+### Rationale
+
+* Enables deployment to a serverless container runtime.
+* Keeps the core story engine reusable across CLI, UI, and API.
+* Adds guardrails to prevent abuse and resource exhaustion.
+
+---
+
+## 13. Explicit Non-Goals (Intentional Omissions)
 
 The following were intentionally scoped out:
 
@@ -217,7 +239,7 @@ These were excluded to:
 
 ---
 
-## 13. Key Tradeoffs
+## 14. Key Tradeoffs
 
 * **Simplicity over completeness**
 * **Explainability over sophistication**
@@ -226,7 +248,7 @@ These were excluded to:
 
 ---
 
-## 14. Summary
+## 15. Summary
 
 This system demonstrates:
 
