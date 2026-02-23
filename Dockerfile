@@ -8,7 +8,7 @@ WORKDIR /app
 COPY src/ /app/src/
 
 RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir openai fastapi uvicorn python-dotenv
+    && pip install --no-cache-dir openai fastapi uvicorn python-dotenv pydantic-settings
 
 EXPOSE 8080
 
