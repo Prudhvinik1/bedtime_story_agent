@@ -1,5 +1,0 @@
-pytest
-pytest-cov
-fastapi
-uvicorn
-pydantic-settings

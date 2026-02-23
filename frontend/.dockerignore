@@ -1,4 +1,23 @@
+# Dependencies & build
 node_modules/
 .next/
-.env.local
+.npm
+.pnp
+.pnp.js
+
+# Environment (inject at runtime; never bake secrets into image)
+.env*
+
+# Git & IDE
 .git/
+.gitignore
+.dockerignore
+*.md
+
+# Test & coverage
+coverage/
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+vitest.config.*

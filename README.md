@@ -33,8 +33,9 @@ source .venv/bin/activate
 
 ### 2) Install dependencies
 ```bash
-pip install openai streamlit python-dotenv fastapi uvicorn
-pip install -r requirements-dev.txt
+pip install -r requirements.txt
+# Optional (for Streamlit UI and tests):
+pip install streamlit pytest pytest-cov
 ```
 
 ### 3) Add your OpenAI API key
