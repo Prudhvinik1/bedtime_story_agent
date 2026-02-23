@@ -8,8 +8,7 @@ WORKDIR /app
 
 # --- Dependencies (layer cached when requirements unchanged) ---
 COPY requirements.txt .
-RUN --mount=type=cache,id=pip-cache,target=/root/.cache/pip \
-    pip install --upgrade pip && \
+RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
 # --- Application ---
