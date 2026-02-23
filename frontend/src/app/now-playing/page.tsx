@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import * as Popover from "@radix-ui/react-popover";
 import {
   ChevronLeft,
@@ -43,11 +43,6 @@ export default function NowPlayingPage() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSeconds, setCurrentSeconds] = useState(84);
   const [volume, setVolume] = useState(72);
-
-  const progressPct = useMemo(
-    () => (currentSeconds / TOTAL_SECONDS) * 100,
-    [currentSeconds]
-  );
 
   return (
     <div className="min-h-screen bg-[#F9F9F8] transition-all duration-300 ease-in-out">
