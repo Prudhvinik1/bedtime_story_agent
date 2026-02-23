@@ -39,10 +39,10 @@ export default function ChatInput({
   };
 
   return (
-    <div className="glass flex items-end gap-3 rounded-2xl px-4 py-3 transition-all focus-within:border-accent/30 focus-within:shadow-lg focus-within:shadow-accent-glow">
+    <div className="glass story-input-panel flex items-end gap-3 px-4 py-3 transition-all">
       <textarea
         ref={textareaRef}
-        className="flex-1 resize-none bg-transparent py-1 text-sm leading-relaxed text-text-primary placeholder-text-muted outline-none"
+        className="story-input-textarea flex-1 resize-none bg-transparent py-1 text-sm leading-relaxed text-text-primary placeholder-text-muted outline-none"
         rows={1}
         value={input}
         onChange={(e) => setInput(e.target.value)}
@@ -53,7 +53,7 @@ export default function ChatInput({
       <button
         onClick={handleSend}
         disabled={disabled || !input.trim()}
-        className="group flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent text-white shadow-md shadow-accent-glow transition-all hover:bg-accent-dark hover:shadow-lg hover:shadow-accent-glow disabled:opacity-30 disabled:shadow-none disabled:cursor-not-allowed"
+        className="story-send-button group flex shrink-0 items-center justify-center text-white transition-all disabled:opacity-30 disabled:shadow-none disabled:cursor-not-allowed"
         aria-label="Send"
       >
         <svg

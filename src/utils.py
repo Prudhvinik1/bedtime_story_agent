@@ -1,13 +1,13 @@
-import os
 import time
 from typing import Optional
 
 from openai import OpenAI
 
+from src.config import settings
 from src.logging_utils import get_logger, log_event
 
-DEFAULT_MODEL = os.getenv("OPENAI_MODEL", "gpt-3.5-turbo")
-DEFAULT_TIMEOUT_SECONDS = float(os.getenv("OPENAI_TIMEOUT_SECONDS", "30"))
+DEFAULT_MODEL = settings.openai_model
+DEFAULT_TIMEOUT_SECONDS = settings.openai_timeout_seconds
 
 def call_model(
     user_prompt: str,
@@ -19,8 +19,7 @@ def call_model(
     model: str = DEFAULT_MODEL,
     timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS,
 ) -> str:
-    api_key = os.getenv("OPENAI_API_KEY")
-    client = OpenAI(api_key=api_key)
+    client = OpenAI(api_key=settings.openai_api_key)
 
     logger = logger or get_logger()
     started_at = time.monotonic()
