@@ -26,8 +26,8 @@ export default function Home() {
   }, [router]);
 
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <div className="glass rounded-2xl px-5 py-3 text-sm text-text-secondary">
+    <main className="app-page flex min-h-screen items-center justify-center">
+      <div className="app-card glass rounded-2xl px-5 py-3 text-sm text-[#78716C]">
         Redirecting...
       </div>
     </main>

@@ -1,0 +1,405 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap");
+
+:root {
+  --bg-gradient: #f9f9f8;
+  --text-primary-ui: #1c1917;
+  --text-secondary-ui: #57534e;
+  --text-muted-ui: #78716c;
+  --heading-ui: #1c1917;
+  --surface-glass: rgba(255, 255, 255, 0.9);
+  --surface-card: #ffffff;
+  --surface-strong: #f5f5f4;
+  --surface-border: rgba(120, 113, 108, 0.22);
+  --shadow-soft: 0 16px 36px rgba(28, 25, 23, 0.08);
+  --accent: #c25e3e;
+  --accent-light: #d37a5f;
+  --accent-strong: #a64c31;
+  --gold-soft: #c25e3e;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  background: var(--bg-gradient);
+  color: var(--text-primary-ui);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  line-height: 1.45;
+}
+
+h1,
+h2,
+h3,
+.font-heading {
+  font-family: "Merriweather", Georgia, serif;
+}
+
+.glass {
+  background: var(--surface-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--surface-border);
+}
+
+.story-page,
+.auth-page,
+.app-page {
+  position: relative;
+  z-index: 1;
+}
+
+.app-page {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+}
+
+.app-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.app-heading {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 1.85rem;
+  color: var(--heading-ui);
+}
+
+.app-subtext {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-muted-ui);
+  line-height: 1.6;
+}
+
+.app-button {
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent-light));
+  border-radius: 12px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 600;
+  color: #fff;
+  transition: filter 200ms ease;
+}
+
+.app-button:hover {
+  filter: brightness(1.1);
+}
+
+.app-link {
+  color: var(--accent);
+  transition: color 200ms ease;
+}
+
+.app-link:hover {
+  color: var(--accent-light);
+}
+
+.app-message {
+  background: var(--surface-strong);
+  border: 1px solid var(--surface-border);
+  color: var(--text-secondary-ui);
+}
+
+.story-page .moon-logo {
+  color: var(--accent);
+  filter: drop-shadow(0 0 6px rgba(194, 94, 62, 0.25));
+}
+
+.story-page h1,
+.story-page h2,
+.story-page .text-text-primary {
+  color: var(--heading-ui);
+}
+
+.story-page .text-text-muted,
+.story-page .text-text-secondary {
+  color: var(--text-muted-ui);
+}
+
+.story-page .hero-title {
+  font-size: 2rem;
+  line-height: 1.2;
+  color: var(--heading-ui);
+}
+
+.story-page .hero-subtitle {
+  max-width: 400px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  color: var(--text-muted-ui);
+  line-height: 1.7;
+}
+
+.story-page .suggestion-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  min-height: 156px;
+  box-shadow: 0 8px 18px rgba(28, 25, 23, 0.08);
+  transition: all 300ms ease-in-out;
+}
+
+.story-page .suggestion-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(194, 94, 62, 0.36);
+  box-shadow: 0 12px 24px rgba(194, 94, 62, 0.16);
+}
+
+.story-page .suggestion-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(194, 94, 62, 0.1);
+}
+
+.story-page .suggestion-title {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--heading-ui);
+  line-height: 1.2;
+}
+
+.story-page .suggestion-desc {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted-ui);
+  line-height: 1.4;
+}
+
+.story-logout {
+  border-color: var(--surface-border) !important;
+  color: var(--text-secondary-ui) !important;
+}
+
+.story-logout:hover {
+  color: var(--text-primary-ui) !important;
+}
+
+.story-message .story-user-bubble {
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent-light));
+}
+
+.story-message .story-user-avatar {
+  background: var(--surface-strong);
+  color: var(--text-secondary-ui);
+}
+
+.story-message .story-assistant-avatar {
+  background: linear-gradient(135deg, var(--accent-light), var(--accent-strong));
+  color: #fff;
+}
+
+.story-message .story-assistant-bubble {
+  background: var(--surface-card);
+  border-color: var(--surface-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.story-message .story-assistant-label {
+  color: var(--accent);
+}
+
+.story-message .story-assistant-text {
+  color: var(--text-primary-ui);
+}
+
+.feedback-bar .feedback-title {
+  color: var(--text-muted-ui);
+}
+
+.feedback-bar .feedback-chip {
+  background: var(--surface-card);
+  border-color: var(--surface-border);
+  color: var(--text-secondary-ui);
+}
+
+.feedback-bar .feedback-chip:hover {
+  color: var(--text-primary-ui);
+  border-color: rgba(194, 94, 62, 0.36);
+}
+
+.feedback-bar .feedback-custom-input {
+  background: var(--surface-strong);
+  border-color: var(--surface-border);
+  color: var(--text-primary-ui);
+}
+
+.feedback-bar .feedback-custom-input::placeholder {
+  color: var(--text-muted-ui);
+}
+
+.feedback-bar .feedback-apply-button {
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent-light));
+}
+
+.loading-indicator .loading-avatar {
+  background: linear-gradient(135deg, var(--accent-light), var(--accent-strong));
+}
+
+.loading-indicator .loading-bubble {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+}
+
+.loading-indicator .loading-text {
+  color: var(--text-muted-ui);
+}
+
+.story-input-panel {
+  border-radius: 18px;
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 8px 20px rgba(28, 25, 23, 0.08);
+}
+
+.story-input-panel:focus-within {
+  border-color: rgba(194, 94, 62, 0.6);
+  box-shadow: 0 0 0 3px rgba(194, 94, 62, 0.16), var(--shadow-soft);
+}
+
+.story-input-textarea {
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text-primary-ui);
+}
+
+.story-input-textarea::placeholder {
+  color: var(--text-muted-ui);
+}
+
+.story-send-button {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent-light));
+  box-shadow: 0 8px 18px rgba(194, 94, 62, 0.24);
+}
+
+.story-safety-note {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-muted-ui);
+  letter-spacing: 0.01em;
+}
+
+.story-safety-note .shield {
+  margin-right: 0.35rem;
+}
+
+.auth-page .auth-card,
+.app-page .app-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-soft);
+}
+
+.auth-page .auth-heading,
+.app-page .app-heading {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 1.85rem;
+  color: var(--heading-ui);
+}
+
+.auth-page .auth-subtext,
+.app-page .app-subtext {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-muted-ui);
+  line-height: 1.6;
+}
+
+.auth-page .auth-label {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.auth-page .auth-input {
+  background: var(--surface-strong);
+  border: 1px solid var(--surface-border);
+  border-radius: 14px;
+  color: var(--text-primary-ui);
+  padding: 12px 16px;
+}
+
+.auth-page .auth-input::placeholder {
+  color: #9ca3af;
+}
+
+.auth-page .auth-input:focus {
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 3px rgba(211, 122, 95, 0.26);
+}
+
+.auth-page .auth-button,
+.app-page .app-button {
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent-light));
+  border-radius: 12px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 600;
+  transition: filter 200ms ease;
+}
+
+.auth-page .auth-button:hover,
+.app-page .app-button:hover {
+  filter: brightness(1.1);
+}
+
+.auth-page .auth-message,
+.app-page .app-message {
+  background: var(--surface-strong) !important;
+  border-color: var(--surface-border) !important;
+  color: var(--text-secondary-ui) !important;
+}
+
+.auth-page .auth-links,
+.app-page .auth-links {
+  color: var(--text-secondary-ui);
+}
+
+.auth-page .auth-link,
+.app-page .app-link {
+  color: var(--accent);
+  transition: color 200ms ease;
+}
+
+.auth-page .auth-link:hover,
+.app-page .app-link:hover {
+  color: var(--accent-light);
+}
+
+.story-topbar {
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid var(--surface-border);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.story-brand-icon {
+  background: rgba(194, 94, 62, 0.1);
+}
+
+.story-composer-shell {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: var(--surface-border);
+}
+
+.story-composer-input {
+  box-shadow: 0 -10px 24px rgba(28, 25, 23, 0.07);
+}

@@ -40,10 +40,10 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center px-4">
-      <section className="glass w-full max-w-md rounded-2xl p-6">
-        <h1 className="mb-1 text-2xl font-semibold text-text-primary">Sign in</h1>
-        <p className="mb-6 text-sm text-text-secondary">
+    <main className="app-page auth-page relative flex min-h-screen items-center justify-center px-4">
+      <section className="auth-card glass w-full max-w-md p-6">
+        <h1 className="auth-heading mb-1 font-semibold">Sign in</h1>
+        <p className="auth-subtext mb-6">
           Access your saved bedtime story sessions.
         </p>
 
@@ -51,7 +51,7 @@ export default function LoginPage() {
           <div>
             <label
               htmlFor="email"
-              className="mb-1 block text-xs font-medium uppercase tracking-wide text-text-secondary"
+              className="auth-label mb-1 block font-medium"
             >
               Email
             </label>
@@ -61,7 +61,7 @@ export default function LoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-xl border border-surface-400/60 bg-surface-200 px-3 py-2 text-sm text-text-primary outline-none transition focus:border-accent/50"
+              className="auth-input w-full text-sm outline-none transition"
               placeholder="you@example.com"
             />
           </div>
@@ -69,7 +69,7 @@ export default function LoginPage() {
           <div>
             <label
               htmlFor="password"
-              className="mb-1 block text-xs font-medium uppercase tracking-wide text-text-secondary"
+              className="auth-label mb-1 block font-medium"
             >
               Password
             </label>
@@ -79,7 +79,7 @@ export default function LoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-xl border border-surface-400/60 bg-surface-200 px-3 py-2 text-sm text-text-primary outline-none transition focus:border-accent/50"
+              className="auth-input w-full text-sm outline-none transition"
               placeholder="Your password"
             />
           </div>
@@ -87,23 +87,23 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-accent px-4 py-2 text-sm font-medium text-white transition hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-60"
+            className="auth-button w-full px-4 py-2 text-sm text-white transition disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
 
         {message ? (
-          <p className="mt-4 rounded-xl border border-surface-400/60 bg-surface-200 px-3 py-2 text-sm text-text-secondary">
+          <p className="auth-message mt-4 rounded-xl border px-3 py-2 text-sm">
             {message}
           </p>
         ) : null}
 
-        <div className="mt-5 flex items-center justify-between text-sm text-text-secondary">
-          <Link href="/" className="text-accent-light hover:underline">
+        <div className="auth-links mt-5 flex items-center justify-between text-sm">
+          <Link href="/" className="auth-link hover:underline">
             Home
           </Link>
-          <Link href="/signup" className="text-accent-light hover:underline">
+          <Link href="/signup" className="auth-link hover:underline">
             Create account
           </Link>
         </div>
